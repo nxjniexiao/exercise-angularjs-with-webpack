@@ -1,0 +1,22 @@
+.login-wrapper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding-top: 200px;
+  background: #096dd9;
+}
+
+.login-content {
+  margin: 0 auto;
+  width: 440px;
+  height: 440px;
+  padding: 40px;
+  border: 1px solid #e1e4e8;
+  background: #fff;
+}
+
+.login-wrapper .title {
+  text-align: center;
+}

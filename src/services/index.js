@@ -1,3 +1,4 @@
+import angular from 'angular';
 import AuthService from './auth-service/auth.service';
 
 const serviceModule = angular.module('serviceModule', []);
