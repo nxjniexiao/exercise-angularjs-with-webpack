@@ -11,7 +11,9 @@ class AuthorizeController {
 
 AuthorizeController.$inject = ['$state'];
 
-export const app = {
-  template: template,
+const app = {
+  template,
   controller: AuthorizeController
 }
+
+export default app;

@@ -16,8 +16,12 @@ const demoApp = angular.module('demoApp', [
   COMPONENTS_MODULE.name,
   DIRECTIVES_MODULE.name,
   FILTERS_MODULE.name,
-  SERVICE_MODULE.name,
-  // SERVICE_MODULE.name === 'serviceModule'
+  SERVICE_MODULE.name, // SERVICE_MODULE.name === 'serviceModule'
+  
+  /**
+   * These modules are lazy loaded via future states in routes/index.js
+   */
+  // HOME_MODULE.name
 ]);
 
 export default demoApp;

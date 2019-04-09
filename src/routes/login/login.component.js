@@ -4,12 +4,18 @@ import './login.css';
 class LoginController {
   constructor($state) {
     this.$state = $state;
+    this.login = function() {
+      console.log('login');
+      this.$state.go('home');
+    }
   }
 }
 
 LoginController.$inject = ['$state'];
 
-export const login = {
-  controller: LoginController,
-  template: template
+const login = {
+  template,
+  controller: LoginController
 };
+
+export default login;

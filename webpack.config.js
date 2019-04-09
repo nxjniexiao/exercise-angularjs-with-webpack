@@ -11,6 +11,7 @@ module.exports = {
   },
   output: {
     filename: '[name].js',
+    publicPath: '/dist/', // The bundled files will be available in the browser under this path.
     path: path.resolve(__dirname, 'dist')
   },
   devServer: {
