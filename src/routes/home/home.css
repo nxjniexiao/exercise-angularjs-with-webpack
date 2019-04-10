@@ -20,3 +20,31 @@
   height: 800px;
   background: #ccc;
 }
+
+.logo-group .logo {
+  margin-bottom: 10px;
+}
+
+.logo .angular {
+  width: 250px;
+}
+
+.logo .ui-router {
+  width: 50px;
+}
+
+.logo .webpack {
+  width: 250px;
+  color: white;
+  font-size: 20px;
+  vertical-align: top;
+}
+
+.logo .ui-router-title {
+  display: inline-block;
+  color: white;
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 50px;
+  vertical-align: top;
+}

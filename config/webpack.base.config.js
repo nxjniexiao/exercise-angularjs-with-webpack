@@ -2,6 +2,7 @@ const path = require('path');
 
 var DEV_SERVER = process.argv[1].indexOf('webpack-dev-server') !== -1;
 var DEV = DEV_SERVER || process.env.DEV;
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: DEV ? 'development' : 'production',
@@ -10,13 +11,18 @@ module.exports = {
     app: './src/index.js'
   },
   output: {
+    /**
+     * `output.path`
+     * The output directory as an absolute path.
+     */
+    path: path.resolve(__dirname, '../dist'),
     filename: '[name].js',
-    publicPath: '/dist/', // The bundled files will be available in the browser under this path.
-    path: path.resolve(__dirname, 'dist')
-  },
-  devServer: {
-    publicPath: '/dist/',
-    port: 8100
+    /**
+     * `output.publicPath`
+     * This is an important option when using on-demand-loading(按需加载) or
+     * loading external resources(加载外部资源) like images, files, etc.
+     */
+    publicPath: '/',
   },
   resolve: {
     extensions: ['.js']
@@ -44,5 +50,11 @@ module.exports = {
         use: 'raw-loader'
       }
     ]
-  }
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: 'index.html',
+      filename: 'index.html'
+    })
+  ]
 };
