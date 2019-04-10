@@ -6,13 +6,16 @@
     <div id="main">
       <div class="logo-group">
         <div class="logo">
-          <img class="webpack" src="/src/assets/img/webpack.svg" alt="">
+          <!-- <img class="webpack" src="/src/assets/img/webpack.svg" alt=""> -->
+          <img class="webpack" ng-src="{{$ctrl.logoWebpack}}" alt="">
         </div>
         <div class="logo">
-          <img class="angular" src="/src/assets/img/angularjs-for-header-only.svg" alt="">
+          <!-- <img class="angular" src="/src/assets/img/angularjs-for-header-only.svg" alt=""> -->
+          <img class="angular" ng-src="{{$ctrl.logoAngular}}" alt="">
         </div>
         <div class="logo">
-          <img class="ui-router" src="/src/assets/img/ui-router.svg" alt="">
+          <!-- <img class="ui-router" src="/src/assets/img/ui-router.svg" alt=""> -->
+          <img class="ui-router" ng-src="{{$ctrl.logoUIRouter}}" alt="">
           <div class="ui-router-title">UI-ROUTER</div>
         </div>
       </div>

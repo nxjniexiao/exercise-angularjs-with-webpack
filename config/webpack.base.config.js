@@ -20,7 +20,7 @@ module.exports = {
      * This is an important option when using on-demand-loading(按需加载) or
      * loading external resources(加载外部资源) like images, files, etc.
      */
-    publicPath: '/',
+    publicPath: '/'
   },
   resolve: {
     extensions: ['.js']
@@ -42,6 +42,30 @@ module.exports = {
       {
         test: /\.html$/,
         use: 'raw-loader'
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+          name: 'static/img/[name].[hash:7].[ext]'
+        }
+      },
+      {
+        test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+          name: 'static/media/[name].[hash:7].[ext]'
+        }
+      },
+      {
+        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+          name: 'static/fonts/[name].[hash:7].[ext]'
+        }
       }
     ]
   },
