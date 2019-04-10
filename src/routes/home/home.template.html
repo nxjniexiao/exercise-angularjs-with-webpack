@@ -6,16 +6,18 @@
     <div id="main">
       <div class="logo-group">
         <div class="logo">
+          <!-- 注意不要使用根路径，即以 / 开头 -->
           <!-- <img class="webpack" src="/src/assets/img/webpack.svg" alt=""> -->
-          <img class="webpack" ng-src="{{$ctrl.logoWebpack}}" alt="">
+          <!-- 方案1：使用相对路径 -->
+          <img class="webpack" src="../../assets/img/webpack.svg" alt="" />
+          <!-- <img class="webpack" ng-src="{{$ctrl.logoWebpack}}" alt=""> -->
         </div>
         <div class="logo">
-          <!-- <img class="angular" src="/src/assets/img/angularjs-for-header-only.svg" alt=""> -->
-          <img class="angular" ng-src="{{$ctrl.logoAngular}}" alt="">
+          <!-- 方案2：使用 require() 后，在 html 中绑定此变量 -->
+          <img class="angular" ng-src="{{ $ctrl.logoAngular }}" alt="" />
         </div>
         <div class="logo">
-          <!-- <img class="ui-router" src="/src/assets/img/ui-router.svg" alt=""> -->
-          <img class="ui-router" ng-src="{{$ctrl.logoUIRouter}}" alt="">
+          <img class="ui-router" src="../../assets/img/ui-router.svg" alt="" />
           <div class="ui-router-title">UI-ROUTER</div>
         </div>
       </div>

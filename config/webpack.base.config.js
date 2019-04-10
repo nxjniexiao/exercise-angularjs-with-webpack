@@ -41,7 +41,7 @@ module.exports = {
       // A loader for webpack that lets you import files as a string.
       {
         test: /\.html$/,
-        use: 'raw-loader'
+        use: 'html-loader'
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
