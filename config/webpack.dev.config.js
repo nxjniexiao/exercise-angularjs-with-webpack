@@ -2,6 +2,8 @@ const merge = require('webpack-merge');
 const baseWebpackConfig = require('./webpack.base.config');
 
 const devWebpackConfig = merge(baseWebpackConfig, {
+  mode: 'development',
+  devtool: 'source-map',
   devServer: {
     /**
      * `devServer.publicPath`
@@ -12,6 +14,14 @@ const devWebpackConfig = merge(baseWebpackConfig, {
      */
     publicPath: '/',
     port: 8100
+  },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
+      }
+    ]
   }
 });
 

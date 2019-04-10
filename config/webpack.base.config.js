@@ -5,8 +5,6 @@ var DEV = DEV_SERVER || process.env.DEV;
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  mode: DEV ? 'development' : 'production',
-  devtool: DEV ? 'source-map' : 'eval',
   entry: {
     app: './src/index.js'
   },
@@ -35,10 +33,6 @@ module.exports = {
   },
   module: {
     rules: [
-      {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader']
-      },
       {
         test: /\.js$/,
         exclude: /(node_modules)/,
