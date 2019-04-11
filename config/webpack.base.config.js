@@ -4,6 +4,10 @@ var DEV_SERVER = process.argv[1].indexOf('webpack-dev-server') !== -1;
 var DEV = DEV_SERVER || process.env.DEV;
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
+function resolve(dir) {
+  return path.join(__dirname, '..', dir);
+}
+
 module.exports = {
   entry: {
     app: './src/index.js'
@@ -22,8 +26,14 @@ module.exports = {
      */
     publicPath: '/'
   },
+  // These options change how modules are resolved. 
   resolve: {
-    extensions: ['.js']
+    // enables users to leave off the extension when importing:
+    extensions: ['.js'],
+    // Create aliases to import or require certain modules more easily.
+    alias: {
+      '@': resolve('src')
+    }
   },
   optimization: {
     splitChunks: {
@@ -48,7 +58,8 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: 'static/img/[name].[hash:7].[ext]'
+          // name: 'static/img/[name].[hash:7].[ext]'
+          name: path.posix.join('static', 'img/[name].[hash:7].[ext]')
         }
       },
       {
