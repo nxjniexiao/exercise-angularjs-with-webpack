@@ -13,10 +13,10 @@ import SERVICE_MODULE from './services';
 const demoApp = angular.module('demoApp', [
   uiRouter,
   ocLazyLoad,
-  COMPONENTS_MODULE.name,
+  COMPONENTS_MODULE.name, // ERVICE_MODULE.name === 'componentsModule'
   DIRECTIVES_MODULE.name,
   FILTERS_MODULE.name,
-  SERVICE_MODULE.name, // SERVICE_MODULE.name === 'serviceModule'
+  SERVICE_MODULE.name,
   
   /**
    * These modules are lazy loaded via future states in routes/index.js

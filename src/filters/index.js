@@ -1,5 +1,5 @@
 import angular from 'angular';
 
-const filtersModule = angular.module('filtersModule', []);
+const FILTERS_MODULE = angular.module('filtersModule', []);
 
-export default filtersModule;
+export default FILTERS_MODULE;

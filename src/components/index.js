@@ -1,5 +1,5 @@
 import angular from 'angular';
 
-const componentsModule = angular.module('componentsModule', []);
+const COMPONENTS_MODULE = angular.module('componentsModule', []);
 
-export default componentsModule;
+export default COMPONENTS_MODULE;
