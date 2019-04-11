@@ -4,16 +4,17 @@
 import template from './app.template.html';
 
 class AuthorizeController {
-  constructor($state) {
+  constructor(AuthService, $state) {
+    this.AuthService = AuthService;
     this.$state = $state;
   }
 }
 
-AuthorizeController.$inject = ['$state'];
+AuthorizeController.$inject = ['AuthService', '$state'];
 
 const app = {
   template,
   controller: AuthorizeController
-}
+};
 
 export default app;

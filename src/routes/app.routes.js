@@ -31,6 +31,7 @@ export const homeStateFuture = {
   /**
    * Properties:
    * `lazyLoad`: function, A function used to lazy load code.
+   * The lazyLoad function is invoked before the state is activated. The transition waits while the code is loading.
    * `lazyLoad(transition: Transition, state: StateDeclaration)`: Promise<LazyLoadResult>
    */
   lazyLoad: function(transition) {
@@ -43,7 +44,7 @@ export const homeStateFuture = {
      *        Gets a value from the injector.
      */
     const $ocLazyLoad = transition.injector().get('$ocLazyLoad');
-    return import('./home/home.module').then(mod => {
+    return import('../pages/home/home.module').then(mod => {
       /**
        * as `export default HOME_MODULE;` in './home/home.module',
        * `mod.default` is HOME_MODULE.

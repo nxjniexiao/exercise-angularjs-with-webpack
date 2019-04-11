@@ -1,7 +1,8 @@
 import demoApp from './app.module';
-import app from './routes/app/app.component';
-import login from './routes/login/login.component';
+import app from './pages/app/app.component';
+import login from './pages/login/login.component';
 import { appState, loginState, homeStateFuture } from './routes/app.routes';
+import { authHookRunBlock } from './routes/hooks/requiresAuth.hook';
 
 demoApp.config([
   '$uiRouterProvider',
@@ -41,3 +42,5 @@ demoApp.config([
 
 demoApp.component('app', app);
 demoApp.component('login', login);
+
+demoApp.run(authHookRunBlock);
