@@ -14,14 +14,6 @@ const devWebpackConfig = merge(baseWebpackConfig, {
      */
     publicPath: '/',
     port: 8100
-  },
-  module: {
-    rules: [
-      {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader']
-      }
-    ]
   }
 });
 

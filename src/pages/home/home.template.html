@@ -19,9 +19,15 @@
           <img class="angular" ng-src="{{ $ctrl.logoAngular }}" alt="" />
         </div>
         <div class="logo">
-          <img class="ui-router" src="../../assets/img/ui-router.svg" alt="" />
+          <!-- 方案3：使用~，如果URL以~开头，则将其后的任何内容解释为模块请求 -->
+          <img class="ui-router" src="~@/assets/img/ui-router.svg" alt="" />
           <div class="ui-router-title">UI-ROUTER</div>
         </div>
+      </div>
+      <div id="absolute-path">
+        <div>use image with absolute path</div>
+        <!-- If the URL is an absolute path (e.g. /images/foo.png), it will be preserved as-is. -->
+        <img src="/static/img/bg.jpg" alt="">
       </div>
       <div class="bg-color-white">
         <form class="form-horizontal">

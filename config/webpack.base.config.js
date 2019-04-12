@@ -1,14 +1,16 @@
 const path = require('path');
-
-var DEV_SERVER = process.argv[1].indexOf('webpack-dev-server') !== -1;
-var DEV = DEV_SERVER || process.env.DEV;
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+// This plugin extracts CSS into separate files.
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 function resolve(dir) {
   return path.join(__dirname, '..', dir);
 }
 
 module.exports = {
+  // The base directory, an absolute path, for resolving entry points and loaders from configuration.
+  context: path.resolve(__dirname, '../'),
   entry: {
     app: './src/index.js'
   },
@@ -18,7 +20,7 @@ module.exports = {
      * The output directory as an absolute path.
      */
     path: path.resolve(__dirname, '../dist'),
-    filename: '[name].js',
+    filename: 'static/js/[name].js',
     /**
      * `output.publicPath`
      * This is an important option when using on-demand-loading(按需加载) or
@@ -26,7 +28,7 @@ module.exports = {
      */
     publicPath: '/'
   },
-  // These options change how modules are resolved. 
+  // These options change how modules are resolved.
   resolve: {
     // enables users to leave off the extension when importing:
     extensions: ['.js'],
@@ -44,11 +46,25 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.css$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              // you can specify a publicPath here
+              // by default it uses publicPath in webpackOptions.output
+              // publicPath: '/',
+              hmr: process.env.NODE_ENV === 'development'
+            }
+          },
+          'css-loader'
+        ]
+      },
+      {
         test: /\.js$/,
         exclude: /(node_modules)/,
         use: { loader: 'babel-loader' }
       },
-      // A loader for webpack that lets you import files as a string.
       {
         test: /\.html$/,
         use: 'html-loader'
@@ -84,6 +100,20 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: 'index.html',
       filename: 'index.html'
+    }),
+    // Copies individual files or entire directories to the build directory.
+    new CopyWebpackPlugin([
+      {
+        from: path.resolve(__dirname, '../static'),
+        to: 'static',
+        ignore: ['.*']
+      }
+    ]),
+    new MiniCssExtractPlugin({
+      // Options similar to the same options in webpackOptions.output
+      // both options are optional
+      filename: 'static/css/[name].css',
+      chunkFilename: 'static/css/[id].css'
     })
   ]
 };

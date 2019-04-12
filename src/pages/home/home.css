@@ -57,3 +57,11 @@
 .text-right {
   text-align: right;
 }
+
+#absolute-path {
+  color: white;
+}
+
+#absolute-path img {
+  width: 100px;
+}
